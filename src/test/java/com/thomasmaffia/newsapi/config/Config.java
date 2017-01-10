@@ -10,6 +10,9 @@ public class Config {
     @JsonProperty
     private String apiKey;
 
+    @JsonProperty
+    private String source;
+
     public Config() {
     }
 
@@ -19,5 +22,13 @@ public class Config {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }

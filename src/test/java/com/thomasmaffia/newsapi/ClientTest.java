@@ -13,8 +13,8 @@ import java.io.IOException;
  * Created by tmaffia on 1/9/17.
  */
 public class ClientTest {
-    private static String apiKey;
-    private static final String SOURCE = "techcrunch";
+    private String apiKey;
+    private String source;
 
     public ClientTest() {
     }
@@ -27,6 +27,7 @@ public class ClientTest {
                     Thread.currentThread().getContextClassLoader().getResource("config.yaml"),
                     Config.class);
             this.apiKey = config.getApiKey();
+            this.source = config.getSource();
         } catch (IOException e) {
             System.out.println("Failed to get Config file for API Key");
             e.printStackTrace();
@@ -36,7 +37,7 @@ public class ClientTest {
     @Test
     public void test_getArticles() {
         Client client = new Client(apiKey);
-        String result = client.getArticles(SOURCE, "");
+        String result = client.getArticles(source, "");
         Assert.assertNotNull(result);
         System.out.print(result);
     }
