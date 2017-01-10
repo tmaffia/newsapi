@@ -1,4 +1,5 @@
 apiKey: <YOUR_API_KEY_HERE>
 source: techcrunch
-language: de
+newsCategory: sport
+language: en
 country: us
