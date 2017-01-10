@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.thomasmaffia.newsapi.config.Config;
 import com.thomasmaffia.newsapi.objects.Country;
 import com.thomasmaffia.newsapi.objects.Language;
+import com.thomasmaffia.newsapi.objects.NewsCategory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +18,7 @@ import java.io.IOException;
 public class ClientTest {
     private String apiKey;
     private String source;
+    private NewsCategory newsCategory;
     private Language language;
     private Country country;
 
@@ -32,11 +34,23 @@ public class ClientTest {
                     Config.class);
             this.apiKey = config.getApiKey();
             this.source = config.getSource();
+            this.newsCategory = matchCategory(config.getNewsCategory());
             this.language = matchLanguage(config.getLanguage());
+            this.country = matchCountry(config.getCountry());
         } catch (IOException e) {
             System.out.println("Failed to get Config file for API Key");
             e.printStackTrace();
         }
+    }
+
+    //
+    private NewsCategory matchCategory(final String categoryId) {
+        for (NewsCategory category : NewsCategory.values()) {
+            if (category.getCategoryId().equals(categoryId)) {
+                return category;
+            }
+        }
+        return NewsCategory.SCIENCE_NATURE;
     }
 
     // Defaults to English
@@ -47,6 +61,16 @@ public class ClientTest {
             }
         }
         return Language.ENGLISH;
+    }
+
+    // Defaults to United States
+    private Country matchCountry(final String countryCode) {
+        for (Country country : Country.values()) {
+            if (country.getCountryCode().equals(countryCode)) {
+                return country;
+            }
+        }
+        return Country.UNITED_STATES;
     }
 
     @Test

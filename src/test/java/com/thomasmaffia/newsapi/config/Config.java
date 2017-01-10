@@ -14,6 +14,9 @@ public class Config {
     private String source;
 
     @JsonProperty
+    private String newsCategory;
+
+    @JsonProperty
     private String language;
 
     @JsonProperty
@@ -33,6 +36,14 @@ public class Config {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getNewsCategory() {
+        return newsCategory;
+    }
+
+    public void setNewsCategory(String newsCategory) {
+        this.newsCategory = newsCategory;
     }
 
     public String getLanguage() {

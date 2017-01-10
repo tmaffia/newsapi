@@ -35,15 +35,19 @@ public class NewsApiRequest implements INewsApiRequest {
     }
 
     public String getArticles(String source, SortingMethod sortingMethod) {
-        return null;
+        String finalUrl = ARTICLES_URL
+                + "?source=" + source
+                + "&sortBy=" + sortingMethod.getMethod();
+        return execute(finalUrl);
     }
 
     public String getSources() {
-        return null;
+        return execute(SOURCES_URL);
     }
 
     public String getSources(NewsCategory newsCategory) {
-        return null;
+        String finalUrl = SOURCES_URL + "?category=" + newsCategory.getCategoryId();
+        return execute(finalUrl);
     }
 
     public String getSources(final Language language) {
@@ -52,23 +56,37 @@ public class NewsApiRequest implements INewsApiRequest {
     }
 
     public String getSources(Country country) {
-        return null;
+        String finalUrl = SOURCES_URL + "?country=" + country.getCountryCode();
+        return execute(finalUrl);
     }
 
     public String getSources(NewsCategory newsCategory, Language language) {
-        return null;
+        String finalUrl = SOURCES_URL
+                + "?category=" + newsCategory.getCategoryId()
+                + "&language=" + language.getLanguageCode();
+        return execute(finalUrl);
     }
 
     public String getSources(NewsCategory newsCategory, Country country) {
-        return null;
+        String finalUrl = SOURCES_URL
+                + "?category=" + newsCategory.getCategoryId()
+                + "&country=" + country.getCountryCode();
+        return execute(finalUrl);
     }
 
     public String getSources(Language language, Country country) {
-        return null;
+        String finalUrl = SOURCES_URL
+                + "?language=" + language.getLanguageCode()
+                + "&country=" + country.getCountryCode();
+        return execute(finalUrl);
     }
 
     public String getSources(NewsCategory newsCategory, Language language, Country country) {
-        return null;
+        String finalUrl = SOURCES_URL
+                + "?category=" + newsCategory.getCategoryId()
+                + "&language=" + language.getLanguageCode()
+                + "&country=" + country.getCountryCode();
+        return execute(finalUrl);
     }
 
     private String execute(final String urlString) {
