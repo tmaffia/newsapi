@@ -14,6 +14,9 @@ public class Config {
     private String source;
 
     @JsonProperty
+    private String sortingMethod;
+
+    @JsonProperty
     private String newsCategory;
 
     @JsonProperty
@@ -36,6 +39,14 @@ public class Config {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getSortingMethod() {
+        return sortingMethod;
+    }
+
+    public void setSortingMethod(String sortingMethod) {
+        this.sortingMethod = sortingMethod;
     }
 
     public String getNewsCategory() {

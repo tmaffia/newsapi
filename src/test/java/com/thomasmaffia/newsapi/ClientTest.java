@@ -6,6 +6,7 @@ import com.thomasmaffia.newsapi.config.Config;
 import com.thomasmaffia.newsapi.objects.Country;
 import com.thomasmaffia.newsapi.objects.Language;
 import com.thomasmaffia.newsapi.objects.NewsCategory;
+import com.thomasmaffia.newsapi.objects.SortingMethod;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ import java.io.IOException;
 public class ClientTest {
     private String apiKey;
     private String source;
+    private SortingMethod sortingMethod;
     private NewsCategory newsCategory;
     private Language language;
     private Country country;
@@ -34,6 +36,7 @@ public class ClientTest {
                     Config.class);
             this.apiKey = config.getApiKey();
             this.source = config.getSource();
+            this.sortingMethod = matchSortingMethod(config.getSortingMethod());
             this.newsCategory = matchCategory(config.getNewsCategory());
             this.language = matchLanguage(config.getLanguage());
             this.country = matchCountry(config.getCountry());
@@ -43,7 +46,17 @@ public class ClientTest {
         }
     }
 
-    //
+    // Defaults to latest
+    private SortingMethod matchSortingMethod(final String sortingMethod) {
+        for (SortingMethod method : SortingMethod.values()) {
+            if (method.getMethod().equals(sortingMethod)) {
+                return method;
+            }
+        }
+        return SortingMethod.LATEST;
+    }
+
+    // Defaults to science and nature
     private NewsCategory matchCategory(final String categoryId) {
         for (NewsCategory category : NewsCategory.values()) {
             if (category.getCategoryId().equals(categoryId)) {

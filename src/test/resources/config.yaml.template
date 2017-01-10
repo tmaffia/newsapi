@@ -1,5 +1,6 @@
 apiKey: <YOUR_API_KEY_HERE>
 source: techcrunch
+sortingMethod: popular
 newsCategory: sport
 language: en
 country: us
