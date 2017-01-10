@@ -9,7 +9,16 @@ repositories {
     mavenCentral()
 }
 
+sourceSets.test {
+    resources.srcDirs = ["src/test/resources"]
+}
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    runtime "javax.servlet:javax.servlet-api:3.1.0"
+    testCompile 'junit:junit:4.11'
+    testCompile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.8.3'
+
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.5'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
+
+    compile 'org.slf4j:slf4j-api:1.7.22'
 }
