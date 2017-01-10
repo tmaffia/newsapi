@@ -13,9 +13,6 @@ public class Config {
     @JsonProperty
     private String source;
 
-    public Config() {
-    }
-
     public String getApiKey() {
         return apiKey;
     }
