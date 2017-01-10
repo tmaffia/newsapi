@@ -1,6 +1,10 @@
 # News Api
 Java Library for accessing newsapi.org
 
+### NOTE: Unstable, in development
+
+
+
 ## Getting the library
 clone and package as a jar dependency in your project. Remote repository support coming soon.
 
