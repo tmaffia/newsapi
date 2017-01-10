@@ -1,6 +1,7 @@
 package com.thomasmaffia.newsapi;
 
 
+import com.thomasmaffia.newsapi.objects.Language;
 import com.thomasmaffia.newsapi.request.NewsAPIRequest;
 
 /**
@@ -16,6 +17,11 @@ public class Client {
     public String getArticles(final String source, final String sort) {
         NewsAPIRequest request = new NewsAPIRequest(apiKey);
         return request.getArticles(source);
+    }
+
+    public String getSources(final Language language) {
+        NewsAPIRequest request = new NewsAPIRequest(apiKey);
+        return request.getSources(language);
     }
 
     public String getApiKey() {

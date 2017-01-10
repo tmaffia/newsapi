@@ -1,5 +1,6 @@
 package com.thomasmaffia.newsapi.request;
 
+import com.thomasmaffia.newsapi.objects.Language;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,9 +26,17 @@ public class NewsAPIRequest {
         this.apiKey = apiKey;
     }
 
-    public String getArticles(final String newsSources) {
+    public String getArticles(final String source) {
         String finalUrl = ARTICLES_URL
-                + "?source=" + newsSources + "&apiKey=" + apiKey;
+                + "?source=" + source
+                + "&apiKey=" + apiKey;
+        return execute(finalUrl);
+    }
+
+    public String getSources(final Language language) {
+        String finalUrl = SOURCES_URL
+                + "?language=" + language.getLanguageCode()
+                + "&apiKey=" + apiKey;
         return execute(finalUrl);
     }
 

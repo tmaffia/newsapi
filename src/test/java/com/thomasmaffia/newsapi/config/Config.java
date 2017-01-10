@@ -13,6 +13,12 @@ public class Config {
     @JsonProperty
     private String source;
 
+    @JsonProperty
+    private String language;
+
+    @JsonProperty
+    private String country;
+
     public String getApiKey() {
         return apiKey;
     }
@@ -27,5 +33,21 @@ public class Config {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

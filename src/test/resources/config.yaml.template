@@ -1,2 +1,4 @@
 apiKey: <YOUR_API_KEY_HERE>
 source: techcrunch
+language: de
+country: us
