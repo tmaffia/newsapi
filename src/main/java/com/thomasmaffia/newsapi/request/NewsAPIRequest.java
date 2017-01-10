@@ -27,16 +27,12 @@ public class NewsAPIRequest {
     }
 
     public String getArticles(final String source) {
-        String finalUrl = ARTICLES_URL
-                + "?source=" + source
-                + "&apiKey=" + apiKey;
+        String finalUrl = ARTICLES_URL + "?source=" + source;
         return execute(finalUrl);
     }
 
     public String getSources(final Language language) {
-        String finalUrl = SOURCES_URL
-                + "?language=" + language.getLanguageCode()
-                + "&apiKey=" + apiKey;
+        String finalUrl = SOURCES_URL + "?language=" + language.getLanguageCode();
         return execute(finalUrl);
     }
 
@@ -46,6 +42,7 @@ public class NewsAPIRequest {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("User-Agent", USER_AGENT);
+            connection.setRequestProperty("X-Api-Key", apiKey);
             int responseCode = connection.getResponseCode();
 
             logger.debug("Request at URL: " + urlString);
