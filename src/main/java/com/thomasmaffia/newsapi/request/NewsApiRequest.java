@@ -1,6 +1,9 @@
 package com.thomasmaffia.newsapi.request;
 
+import com.thomasmaffia.newsapi.objects.Country;
 import com.thomasmaffia.newsapi.objects.Language;
+import com.thomasmaffia.newsapi.objects.NewsCategory;
+import com.thomasmaffia.newsapi.objects.SortingMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +17,7 @@ import java.net.URL;
 /**
  * Created by tmaffia on 1/9/17.
  */
-public class NewsApiRequest {
+public class NewsApiRequest implements INewsApiRequest {
     private static final Logger logger = LoggerFactory.getLogger(NewsApiRequest.class);
     private static final String ARTICLES_URL = "https://newsapi.org/v1/articles";
     private static final String SOURCES_URL = "https://newsapi.org/v1/sources";
@@ -31,9 +34,41 @@ public class NewsApiRequest {
         return execute(finalUrl);
     }
 
+    public String getArticles(String source, SortingMethod sortingMethod) {
+        return null;
+    }
+
+    public String getSources() {
+        return null;
+    }
+
+    public String getSources(NewsCategory newsCategory) {
+        return null;
+    }
+
     public String getSources(final Language language) {
         String finalUrl = SOURCES_URL + "?language=" + language.getLanguageCode();
         return execute(finalUrl);
+    }
+
+    public String getSources(Country country) {
+        return null;
+    }
+
+    public String getSources(NewsCategory newsCategory, Language language) {
+        return null;
+    }
+
+    public String getSources(NewsCategory newsCategory, Country country) {
+        return null;
+    }
+
+    public String getSources(Language language, Country country) {
+        return null;
+    }
+
+    public String getSources(NewsCategory newsCategory, Language language, Country country) {
+        return null;
     }
 
     private String execute(final String urlString) {
