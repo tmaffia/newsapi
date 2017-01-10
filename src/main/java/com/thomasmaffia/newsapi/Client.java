@@ -2,7 +2,7 @@ package com.thomasmaffia.newsapi;
 
 
 import com.thomasmaffia.newsapi.objects.Language;
-import com.thomasmaffia.newsapi.request.NewsAPIRequest;
+import com.thomasmaffia.newsapi.request.NewsApiRequest;
 
 /**
  * Created by java on 1/9/17.
@@ -15,12 +15,12 @@ public class Client {
     }
 
     public String getArticles(final String source, final String sort) {
-        NewsAPIRequest request = new NewsAPIRequest(apiKey);
+        NewsApiRequest request = new NewsApiRequest(apiKey);
         return request.getArticles(source);
     }
 
     public String getSources(final Language language) {
-        NewsAPIRequest request = new NewsAPIRequest(apiKey);
+        NewsApiRequest request = new NewsApiRequest(apiKey);
         return request.getSources(language);
     }
 

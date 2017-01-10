@@ -14,15 +14,15 @@ import java.net.URL;
 /**
  * Created by tmaffia on 1/9/17.
  */
-public class NewsAPIRequest {
-    private static final Logger logger = LoggerFactory.getLogger(NewsAPIRequest.class);
+public class NewsApiRequest {
+    private static final Logger logger = LoggerFactory.getLogger(NewsApiRequest.class);
     private static final String ARTICLES_URL = "https://newsapi.org/v1/articles";
     private static final String SOURCES_URL = "https://newsapi.org/v1/sources";
     private static final String USER_AGENT = "Mozilla/5.0";
     private HttpURLConnection connection = null;
     private final String apiKey;
 
-    public NewsAPIRequest(String apiKey) {
+    public NewsApiRequest(String apiKey) {
         this.apiKey = apiKey;
     }
 
