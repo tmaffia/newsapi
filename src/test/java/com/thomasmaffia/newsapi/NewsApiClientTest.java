@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * Created by tmaffia on 1/9/17.
  */
-public class ClientTest {
+public class NewsApiClientTest {
     private String apiKey;
     private String source;
     private SortingMethod sortingMethod;
@@ -24,7 +24,7 @@ public class ClientTest {
     private Language language;
     private Country country;
 
-    public ClientTest() {
+    public NewsApiClientTest() {
     }
 
     @Before
@@ -88,15 +88,23 @@ public class ClientTest {
 
     @Test
     public void test_getArticles() {
-        Client client = new Client(apiKey);
-        String result = client.getArticles(source, "");
+        NewsApiClient client = new NewsApiClient(apiKey);
+        String result = client.getArticles(source);
+        Assert.assertNotNull(result);
+        System.out.println(result);
+    }
+
+    @Test
+    public void test_getArticlesSort() {
+        NewsApiClient client = new NewsApiClient(apiKey);
+        String result = client.getArticles(source, sortingMethod);
         Assert.assertNotNull(result);
         System.out.println(result);
     }
 
     @Test
     public void test_getSources() {
-        Client client = new Client(apiKey);
+        NewsApiClient client = new NewsApiClient(apiKey);
         String result = client.getSources(language);
         Assert.assertNotNull(result);
         System.out.println(result);
