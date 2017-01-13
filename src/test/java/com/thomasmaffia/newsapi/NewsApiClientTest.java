@@ -105,7 +105,31 @@ public class NewsApiClientTest {
     @Test
     public void test_getSources() {
         NewsApiClient client = new NewsApiClient(apiKey);
+        String result = client.getSources();
+        Assert.assertNotNull(result);
+        System.out.println(result);
+    }
+
+    @Test
+    public void test_getSourcesCategory() {
+        NewsApiClient client = new NewsApiClient(apiKey);
+        String result = client.getSources(newsCategory);
+        Assert.assertNotNull(result);
+        System.out.println(result);
+    }
+
+    @Test
+    public void test_getSourcesLanguage() {
+        NewsApiClient client = new NewsApiClient(apiKey);
         String result = client.getSources(language);
+        Assert.assertNotNull(result);
+        System.out.println(result);
+    }
+
+    @Test
+    public void test_getSourcesCountry() {
+        NewsApiClient client = new NewsApiClient(apiKey);
+        String result = client.getSources(country);
         Assert.assertNotNull(result);
         System.out.println(result);
     }
